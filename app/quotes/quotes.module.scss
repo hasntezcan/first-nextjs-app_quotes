@@ -1,0 +1,114 @@
+$accent : #333;
+$radius : 25px;
+$break  : 540px;
+
+.container {
+  max-width: 800px;
+  margin: 2.5rem auto;
+  padding: 0.5rem 2rem 2rem;
+  font-family: system-ui, sans-serif;
+  background: hsl(0, 0%, 96%);
+  border-radius: $radius;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  @media(max-width: $break) {
+    padding: 5px 1rem 1rem;
+    margin: 20px 15px;
+  }
+}
+
+.title {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+  text-align: center;
+}
+.navLink {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid $accent;
+  border-radius: $radius;
+  font-size: 0.9rem;
+  color: $accent;
+  text-decoration: none;
+  &:hover { background: rgba($accent, 0.1); }
+}
+
+// sekmeler
+.tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  .tab {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid $accent;
+    border-radius: $radius;
+    text-align: center;
+    background: transparent;
+    color: $accent;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+
+    &.active {
+      background: $accent;
+      color: #fff;
+    }
+    &:hover:not(.active) {
+      background: rgba($accent, 0.1);
+    }
+  }
+
+  @media(max-width: $break) {
+    flex-direction: column;
+  }
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.listItem {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background: #fff;
+  border-left: 4px solid $accent;
+  border-radius: 20px;
+  box-shadow: 0 0 0 1px #e5e5e5;
+
+  .quoteText {
+    flex: 1;
+    font-style: italic;
+    line-height: 1.4;
+    color: #222;
+  }
+  .author {
+    margin-left: 1rem;
+    white-space: nowrap;
+    font-weight: 600;
+    color: #222;
+  }
+  .removeBtn {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: #c00;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color .2s;
+    &:hover { color: #e00; }
+  }
+
+  @media(max-width: $break) {
+    flex-wrap: wrap;
+    .quoteText { flex: 1 1 100%; margin-bottom: .5rem; }
+    .author    { margin: 0 .5rem 0 0; }
+    .removeBtn { margin: 0; align-self: flex-end; }
+  }
+}

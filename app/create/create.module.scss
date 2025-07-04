@@ -1,0 +1,74 @@
+$accent : #333;
+$radius : 25px;
+$break  : 540px;
+
+.formContainer {
+  max-width: 550px;
+  margin: 2.5rem auto;
+  padding: 1.5rem 2rem;
+  background:hsl(0, 0%, 96%);
+  border-radius: $radius;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  text-align: auto;
+  font-family: system-ui, sans-serif;
+  @media(max-width: $break) {
+    margin: 2rem 1rem;
+  }
+}
+
+.title {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: #222;
+  text-align: center;
+}
+
+.navLink {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid $accent;
+  border-radius: $radius;
+  color: $accent;
+  text-decoration: none;
+  &:hover { background: rgba(0,0,0,0.03); }
+}
+
+.form {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .input {
+    flex: 1 1 200px;
+    min-width: 150px;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: $radius;
+    font-size: 0.95rem;
+    &:focus {
+      outline: none;
+      border-color: $accent;
+      box-shadow: 0 0 0 2px rgba($accent,0.2);
+    }
+  }
+
+  .buttonPrimary {
+    padding: 0.75rem 1.25rem;
+    background: $accent;
+    color: #fff;
+    border: none;
+    border-radius: $radius;
+    cursor: pointer;
+    transition: background .2s;
+    &:hover { background: darken($accent,10%); }
+  }
+}
+
+@media(max-width: $break) {
+  .form {
+    flex-direction: column;
+    .input, .buttonPrimary { flex: 1 1 100%; }
+  }
+}
